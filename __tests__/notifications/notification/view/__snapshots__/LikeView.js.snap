@@ -2,16 +2,10 @@
 
 exports[`renders correctly for activity 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  collapsable={undefined}
-  hasTVPreferredFocus={undefined}
-  hitSlop={undefined}
+  focusable={true}
   isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -25,22 +19,12 @@ exports[`renders correctly for activity 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-  >
+  <Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
-          "color": "#444",
-          "fontWeight": "bold",
+          "fontWeight": "600",
         }
       }
     >
@@ -50,13 +34,9 @@ exports[`renders correctly for activity 1`] = `
     voted up
      
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
-          "color": "#444",
-          "fontWeight": "bold",
+          "fontWeight": "600",
         }
       }
     >
@@ -68,16 +48,10 @@ exports[`renders correctly for activity 1`] = `
 
 exports[`renders correctly for comment 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  collapsable={undefined}
-  hasTVPreferredFocus={undefined}
-  hitSlop={undefined}
+  focusable={true}
   isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -91,22 +65,12 @@ exports[`renders correctly for comment 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-  >
+  <Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
-          "color": "#444",
-          "fontWeight": "bold",
+          "fontWeight": "600",
         }
       }
     >
@@ -116,17 +80,15 @@ exports[`renders correctly for comment 1`] = `
     voted up
      
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
-          "color": "#444",
-          "fontWeight": "bold",
+          "fontWeight": "600",
         }
       }
     >
-       your comment 
+       
+      your comment
+       
     </Text>
   </Text>
 </View>
@@ -134,16 +96,10 @@ exports[`renders correctly for comment 1`] = `
 
 exports[`renders correctly for object 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  collapsable={undefined}
-  hasTVPreferredFocus={undefined}
-  hitSlop={undefined}
+  focusable={true}
   isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -157,22 +113,12 @@ exports[`renders correctly for object 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-  >
+  <Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
-          "color": "#444",
-          "fontWeight": "bold",
+          "fontWeight": "600",
         }
       }
     >
@@ -182,13 +128,9 @@ exports[`renders correctly for object 1`] = `
     voted up
      
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
-          "color": "#444",
-          "fontWeight": "bold",
+          "fontWeight": "600",
         }
       }
     >

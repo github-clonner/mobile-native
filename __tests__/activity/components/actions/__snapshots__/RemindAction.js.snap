@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Thumb action component renders correctly 1`] = `
-<PreventDoubleTap
+<preventDoubleTap(TouchableOpacity)
   onPress={[Function]}
   style={
     Array [
@@ -9,94 +9,35 @@ exports[`Thumb action component renders correctly 1`] = `
         "flex": 1,
       },
       Object {
+        "alignContent": "center",
+        "alignItems": "center",
+        "alignSelf": "center",
+        "justifyContent": "center",
+      },
+      Object {
         "flexDirection": "row",
         "justifyContent": "center",
       },
     ]
   }
+  testID="Remind activity button"
 >
   <Icon
-    color="rgb(96, 125, 139)"
+    allowFontScaling={false}
     name="repeat"
-    raised={false}
-    reverse={false}
-    reverseColor="white"
     size={20}
-    underlayColor="white"
+    style={
+      Array [
+        undefined,
+        Object {
+          "marginRight": 5,
+        },
+      ]
+    }
   />
   <Counter
-    size={15}
+    count={0}
+    size={14}
   />
-  <Component
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#ede3f2",
-      }
-    }
-  >
-    <Component
-      animationType="slide"
-      hardwareAccelerated={false}
-      onRequestClose={[Function]}
-      transparent={false}
-      visible={false}
-    >
-      <Component
-        style={
-          Object {
-            "flex": 1,
-            "paddingTop": 4,
-          }
-        }
-      >
-        <Component
-          style={
-            Object {
-              "padding": 5,
-            }
-          }
-        >
-          <Icon
-            allowFontScaling={false}
-            color="gray"
-            name="md-close"
-            onPress={[Function]}
-            size={30}
-          />
-        </Component>
-        <RemindModal
-          entity={
-            Object {
-              "attachment_guid": false,
-              "blurb": false,
-              "container_guid": "activityguid0",
-              "custom_data": false,
-              "custom_type": false,
-              "description": "Congratulations! ",
-              "edited": "",
-              "guid": "activityguid0",
-              "mature": false,
-              "message": "Message",
-              "ownerObj": Object {
-                "getAvatarSource": [Function],
-                "guid": "824853017709780997",
-                "subtype": false,
-                "time_created": "1522036284",
-                "type": "user",
-              },
-              "owner_guid": "824853017709780997",
-              "parent_guid": "838106762591510528",
-              "perma_url": false,
-              "thumbnail_src": false,
-              "title": "TITLE",
-              "type": "activity",
-            }
-          }
-          onClose={[Function]}
-        />
-      </Component>
-    </Component>
-  </Component>
-</PreventDoubleTap>
+</preventDoubleTap(TouchableOpacity)>
 `;

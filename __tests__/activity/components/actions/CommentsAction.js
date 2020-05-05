@@ -5,26 +5,17 @@ import { shallow } from 'enzyme';
 
 import { activitiesServiceFaker } from '../../../../__mocks__/fake/ActivitiesFaker';
 
-import renderer from 'react-test-renderer';
 import CommentsAction from '../../../../src/newsfeed/activity/actions/CommentsAction';
-import NavigationStore from '../../../../src/common/stores/NavigationStore';
-import withPreventDoubleTap from '../../../../src/common/components/PreventDoubleTap';
-import featuresService from '../../../../src/common/services/features.service';
 
-jest.mock('../../../../src/common/stores/NavigationStore');
 
 describe('Comment action component', () => {
 
   let screen, navigatorStore, navigation;
   beforeEach(() => {
-
-    const TouchableOpacityCustom = <TouchableOpacity onPress={this.onPress} />;
-    navigatorStore = new NavigationStore();
-    navigatorStore.currentScreen = 'Something';
-    navigation = { navigate: jest.fn() };
+    navigation = { push: jest.fn(), state: {routeName: 'some'}, dangerouslyGetState: jest.fn() };
     let activityResponse = activitiesServiceFaker().load(1);
     screen = shallow(
-      <CommentsAction.wrappedComponent entity={activityResponse.activities[0]} navigatorStore={navigatorStore} navigation={navigation} />
+      <CommentsAction entity={activityResponse.activities[0]} navigation={navigation} />
     );
 
     jest.runAllTimers();
@@ -40,17 +31,17 @@ describe('Comment action component', () => {
 
     screen.update();
 
-    expect(screen.find('PreventDoubleTap')).toHaveLength(1)
+    expect(screen.find('preventDoubleTap(TouchableOpacity)')).toHaveLength(1)
   });
 
   it('should navigate a thumb on press ', async () => {
+    navigation.dangerouslyGetState.mockReturnValue({routes: null})
 
     screen.update();
-    let render = screen.dive();
-    let touchables = screen.find('PreventDoubleTap');
+    let touchables = screen.find('preventDoubleTap(TouchableOpacity)');
     touchables.at(0).props().onPress();
-    expect(navigation.navigate).toHaveBeenCalled();
-    expect(screen.find('PreventDoubleTap')).toHaveLength(1);
+    expect(navigation.push).toHaveBeenCalled();
+    expect(screen.find('preventDoubleTap(TouchableOpacity)')).toHaveLength(1);
 
   });
 

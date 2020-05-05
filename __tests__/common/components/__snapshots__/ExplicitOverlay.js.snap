@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Explicit overlay component renders correctly 1`] = `
+<TouchableOpacity
+  activeOpacity={1}
+  onPress={[Function]}
+  style={
+    Array [
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      },
+      Object {
+        "alignContent": "center",
+        "alignItems": "center",
+        "alignSelf": "center",
+        "justifyContent": "center",
+      },
+      Object {
+        "backgroundColor": "#777777",
+      },
+      Object {
+        "zIndex": 99999,
+      },
+      undefined,
+    ]
+  }
+>
+  <Icon
+    allowFontScaling={false}
+    color="white"
+    name="explicit"
+    size={80}
+    style={
+      Object {
+        "elevation": 4,
+        "shadowColor": "black",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.1,
+        "shadowRadius": 2,
+      }
+    }
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#FFFFFF",
+        },
+        Object {
+          "elevation": 4,
+          "shadowColor": "black",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.1,
+          "shadowRadius": 2,
+        },
+        undefined,
+      ]
+    }
+  >
+    Confirm you are 18+
+  </Text>
+</TouchableOpacity>
+`;
+
+exports[`Explicit overlay component should renders the etag 1`] = `
+<View
+  style={
+    Array [
+      Array [
+        Object {
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        Object {
+          "paddingRight": 15,
+        },
+        Object {
+          "marginRight": 15,
+        },
+      ],
+      undefined,
+    ]
+  }
+>
+  <Icon
+    allowFontScaling={false}
+    color="red"
+    name="explicit"
+    onPress={[Function]}
+    size={32}
+    style={
+      Object {
+        "elevation": 4,
+        "shadowColor": "black",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.1,
+        "shadowRadius": 2,
+      }
+    }
+  />
+</View>
+`;

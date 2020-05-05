@@ -8,7 +8,7 @@ exports[`Activity component renders correctly 1`] = `
     }
   }
 >
-  <Component
+  <View
     style={
       Object {
         "alignItems": "center",
@@ -25,6 +25,7 @@ exports[`Activity component renders correctly 1`] = `
         Object {
           "attachment_guid": false,
           "blurb": false,
+          "containerObj": undefined,
           "container_guid": "activityguid0",
           "custom_data": false,
           "custom_type": false,
@@ -34,7 +35,6 @@ exports[`Activity component renders correctly 1`] = `
           "mature": false,
           "message": "Message",
           "ownerObj": Object {
-            "getAvatarSource": [Function],
             "guid": "824853017709780997",
             "subtype": false,
             "time_created": "1522036284",
@@ -43,14 +43,15 @@ exports[`Activity component renders correctly 1`] = `
           "owner_guid": "824853017709780997",
           "parent_guid": "838106762591510528",
           "perma_url": false,
+          "rowKey": "something0",
+          "shouldBeBlured": [MockFunction],
           "thumbnail_src": false,
+          "time_created": "1522036284",
           "title": "TITLE",
           "type": "activity",
-        }
-      }
-      me={
-        Object {
-          "guid": "guidguid",
+          "wire_totals": Object {
+            "tokens": 1000000000000000000,
+          },
         }
       }
     />
@@ -59,6 +60,7 @@ exports[`Activity component renders correctly 1`] = `
         Object {
           "attachment_guid": false,
           "blurb": false,
+          "containerObj": undefined,
           "container_guid": "activityguid0",
           "custom_data": false,
           "custom_type": false,
@@ -68,7 +70,6 @@ exports[`Activity component renders correctly 1`] = `
           "mature": false,
           "message": "Message",
           "ownerObj": Object {
-            "getAvatarSource": [Function],
             "guid": "824853017709780997",
             "subtype": false,
             "time_created": "1522036284",
@@ -77,21 +78,21 @@ exports[`Activity component renders correctly 1`] = `
           "owner_guid": "824853017709780997",
           "parent_guid": "838106762591510528",
           "perma_url": false,
+          "rowKey": "something0",
+          "shouldBeBlured": [MockFunction],
           "thumbnail_src": false,
+          "time_created": "1522036284",
           "title": "TITLE",
           "type": "activity",
-        }
-      }
-      me={
-        Object {
-          "guid": "guidguid",
+          "wire_totals": Object {
+            "tokens": 1000000000000000000,
+          },
         }
       }
     />
     <WireAction
       owner={
         Object {
-          "getAvatarSource": [Function],
           "guid": "824853017709780997",
           "subtype": false,
           "time_created": "1522036284",
@@ -104,6 +105,7 @@ exports[`Activity component renders correctly 1`] = `
         Object {
           "attachment_guid": false,
           "blurb": false,
+          "containerObj": undefined,
           "container_guid": "activityguid0",
           "custom_data": false,
           "custom_type": false,
@@ -113,7 +115,6 @@ exports[`Activity component renders correctly 1`] = `
           "mature": false,
           "message": "Message",
           "ownerObj": Object {
-            "getAvatarSource": [Function],
             "guid": "824853017709780997",
             "subtype": false,
             "time_created": "1522036284",
@@ -122,17 +123,25 @@ exports[`Activity component renders correctly 1`] = `
           "owner_guid": "824853017709780997",
           "parent_guid": "838106762591510528",
           "perma_url": false,
+          "rowKey": "something0",
+          "shouldBeBlured": [MockFunction],
           "thumbnail_src": false,
+          "time_created": "1522036284",
           "title": "TITLE",
           "type": "activity",
+          "wire_totals": Object {
+            "tokens": 1000000000000000000,
+          },
         }
       }
+      testID=""
     />
     <RemindAction
       entity={
         Object {
           "attachment_guid": false,
           "blurb": false,
+          "containerObj": undefined,
           "container_guid": "activityguid0",
           "custom_data": false,
           "custom_type": false,
@@ -142,7 +151,6 @@ exports[`Activity component renders correctly 1`] = `
           "mature": false,
           "message": "Message",
           "ownerObj": Object {
-            "getAvatarSource": [Function],
             "guid": "824853017709780997",
             "subtype": false,
             "time_created": "1522036284",
@@ -151,12 +159,18 @@ exports[`Activity component renders correctly 1`] = `
           "owner_guid": "824853017709780997",
           "parent_guid": "838106762591510528",
           "perma_url": false,
+          "rowKey": "something0",
+          "shouldBeBlured": [MockFunction],
           "thumbnail_src": false,
+          "time_created": "1522036284",
           "title": "TITLE",
           "type": "activity",
+          "wire_totals": Object {
+            "tokens": 1000000000000000000,
+          },
         }
       }
     />
-  </Component>
+  </View>
 </View>
 `;

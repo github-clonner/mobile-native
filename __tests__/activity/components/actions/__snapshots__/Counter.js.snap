@@ -1,35 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Owner component renders correctly 1`] = `
-<Component
+<View
   style={
-    Object {
-      "alignItems": "center",
-      "flexDirection": "column",
-      "justifyContent": "center",
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "column",
+      },
+    ]
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
+        undefined,
+        undefined,
         Object {
-          "paddingLeft": 4,
-        },
-        Object {
-          "color": "#888",
-          "fontWeight": "800",
-        },
-        Object {
-          "fontSize": 11,
+          "fontSize": 15,
         },
       ]
     }
   >
     100
   </Text>
-</Component>
+</View>
 `;

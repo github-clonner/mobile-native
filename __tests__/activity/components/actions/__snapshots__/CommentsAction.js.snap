@@ -1,12 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Comment action component renders correctly 1`] = `
-<PreventDoubleTap
+<preventDoubleTap(TouchableOpacity)
   onPress={[Function]}
   style={
     Array [
       Object {
         "flex": 1,
+      },
+      Object {
+        "alignContent": "center",
+        "alignItems": "center",
+        "alignSelf": "center",
+        "justifyContent": "center",
       },
       Object {
         "flexDirection": "row",
@@ -16,16 +22,22 @@ exports[`Comment action component renders correctly 1`] = `
   }
 >
   <Icon
-    color="rgb(96, 125, 139)"
-    name="chat-bubble"
-    raised={false}
-    reverse={false}
-    reverseColor="white"
+    allowFontScaling={false}
+    name="speaker-notes-off"
     size={20}
-    underlayColor="white"
+    style={
+      Array [
+        Object {
+          "color": "#d8d8d8",
+        },
+        Object {
+          "marginRight": 5,
+        },
+      ]
+    }
   />
   <Counter
-    size={16}
+    size={14}
   />
-</PreventDoubleTap>
+</preventDoubleTap(TouchableOpacity)>
 `;

@@ -1,25 +1,37 @@
 import 'react-native';
 import React from 'react';
-import { Text, TouchableOpacity } from "react-native";
 import { shallow } from 'enzyme';
 
 import { activitiesServiceFaker } from '../../../__mocks__/fake/ActivitiesFaker';
 
-import renderer from 'react-test-renderer';
 import OwnerBlock from '../../../src/newsfeed/activity/OwnerBlock';
+import ActivityModel from '../../../src/newsfeed/ActivityModel';
+import { getStores } from '../../../AppStores';
 
+getStores.mockReturnValue({
+  user: {
+    me: {},
+    load: jest.fn(),
+    setUser: jest.fn(),
+  },
+});
+// const DebouncedTouchableOpacity = withPreventDoubleTap(TouchableOpacity);
 describe('Owner component', () => {
-
-  let screen;
+  let screen, entity, navigation;
   beforeEach(() => {
-
-    const navigation = { navigate: jest.fn() };
-    let activityResponse = activitiesServiceFaker().load(1);
+    navigation = { navigate: jest.fn(), push: jest.fn() };
+    const activityResponse = activitiesServiceFaker().load(1, {
+      guid: 1,
+      name: 'group',
+    });
+    entity = ActivityModel.create(activityResponse.activities[0]);
     screen = shallow(
-      <OwnerBlock entity={activityResponse.activities[0]} navigation={navigation} rightToolbar={null}/>
+      <OwnerBlock
+        entity={entity}
+        navigation={navigation}
+        rightToolbar={null}
+      />,
     );
-
-    jest.runAllTimers();
   });
 
   it('renders correctly', async () => {
@@ -27,61 +39,31 @@ describe('Owner component', () => {
     expect(screen).toMatchSnapshot();
   });
 
-
-  it('should have Touchableopacity', async () => {
+  it('should have PreventDoubleTap', async () => {
     screen.update();
-    expect(screen.find(TouchableOpacity)).toHaveLength(2);
+    expect(screen.find('preventDoubleTap(TouchableOpacity)')).toHaveLength(3);
   });
 
   it('should _navToChannel on press ', () => {
-    let activityResponse = activitiesServiceFaker().load(1);
-
-    const navigation = { 
-      navigate: jest.fn() 
-    };
-    let entity = activityResponse.activities[0];
-    entity.containerObj = { guid: 'guidguid' };
-    screen = shallow(
-      <OwnerBlock entity={entity} navigation={navigation} rightToolbar={null}/>
-    );
-    screen.update()
-    let render = screen.dive();
-    let touchables = render.find('TouchableOpacity');
+    let touchables = screen.find('preventDoubleTap(TouchableOpacity)');
     touchables.at(0).props().onPress();
-    jest.runAllTimers();
 
-    expect(navigation.navigate).toHaveBeenCalledWith('Channel', {'entity': entity.ownerObj, 'guid': entity.ownerObj.guid});
-
-
-    expect(screen.find(TouchableOpacity)).toHaveLength(3);
-
+    expect(navigation.push).toHaveBeenCalledWith('Channel', {
+      entity: entity.ownerObj,
+      guid: entity.ownerObj.guid,
+    });
+    expect(screen.find('preventDoubleTap(TouchableOpacity)')).toHaveLength(3);
   });
-
 
   it('should nav to groups on press ', () => {
-    let activityResponse = activitiesServiceFaker().load(1);
+    let touchables = screen.find('preventDoubleTap(TouchableOpacity)');
 
-    const navigation = { 
-      navigate: jest.fn() 
-    };
-    let entity = activityResponse.activities[0];
-    entity.containerObj = { guid: 'guidguid' };
-    screen = shallow(
-      <OwnerBlock entity={entity} navigation={navigation} rightToolbar={null}/>
-    );
-    screen.update()
-    let render = screen.dive();
-    let touchables = render.find('TouchableOpacity');
-
-
-    expect(screen.find(TouchableOpacity)).toHaveLength(3);
+    expect(touchables).toHaveLength(3);
     //group touchable
     touchables.at(2).props().onPress();
-    jest.runAllTimers();
 
-    expect(navigation.navigate).toHaveBeenCalled();
-
+    expect(navigation.push).toHaveBeenCalledWith('GroupView', {
+      group: { guid: 1, name: 'group' },
+    });
   });
-
-
 });

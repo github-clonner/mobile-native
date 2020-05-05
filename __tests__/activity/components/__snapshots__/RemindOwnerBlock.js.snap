@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Remind owner component renders correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "alignItems": "center",
@@ -13,12 +13,9 @@ exports[`Remind owner component renders correctly 1`] = `
     }
   }
 >
-  <Icon
+  <Themed.Icon
     color="rgb(70, 144, 214)"
     name="repeat"
-    raised={false}
-    reverse={false}
-    reverseColor="white"
     size={16}
     style={
       Object {
@@ -26,16 +23,21 @@ exports[`Remind owner component renders correctly 1`] = `
         "marginRight": 8,
       }
     }
-    underlayColor="white"
   />
   <TouchableOpacity
     activeOpacity={0.2}
     onPress={[Function]}
   >
-    <Image
+    <FastImage
+      resizeMode="cover"
       source={
         Object {
-          "source": "http://thisisaurl",
+          "headers": Object {
+            "App-Version": "3.8.0",
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+          },
+          "uri": "https://cdn.minds.com/icon/824853017709780997/medium/undefined",
         }
       }
       style={
@@ -50,10 +52,11 @@ exports[`Remind owner component renders correctly 1`] = `
       }
     />
   </TouchableOpacity>
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
+        "justifyContent": "center",
         "marginLeft": 8,
       }
     }
@@ -66,27 +69,23 @@ exports[`Remind owner component renders correctly 1`] = `
           Object {
             "flex": 1,
           },
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-          },
         ]
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
-          Object {
-            "color": "#444",
-            "fontFamily": "Roboto",
-            "fontSize": 13,
-            "fontWeight": "bold",
-          }
+          Array [
+            Object {
+              "fontFamily": "Roboto",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "lineHeight": 25,
+            },
+            undefined,
+          ]
         }
       />
     </TouchableOpacity>
-  </Component>
-</Component>
+  </View>
+</View>
 `;

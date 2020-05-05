@@ -1,5 +1,5 @@
 
-function load(count) {
+function load(count, container) {
 
   let activities = [...Array(count)].map((_, i) => {
     const code = 'activityguid' + i;
@@ -9,21 +9,24 @@ function load(count) {
       container_guid:code,
       custom_data:false,
       custom_type:false,
+      rowKey: 'something' + i,
       description:"Congratulations! ",
       edited:"",
       guid:code,
       mature:false,
+      time_created: "1522036284",
       ownerObj:{
-        guid: "824853017709780997", 
-        type: "user", 
-        subtype: false, 
+        guid: "824853017709780997",
+        type: "user",
+        subtype: false,
         time_created: "1522036284",
-        getAvatarSource: () => {
-          return {
-            source:'http://thisisaurl'
-          }
-        }
+        // getAvatarSource: () => {
+        //   return {
+        //     source:'http://thisisaurl'
+        //   }
+        // }
       },
+      shouldBeBlured: jest.fn(),
       message:"Message",
       title:'TITLE',
       owner_guid:"824853017709780997",
@@ -31,6 +34,23 @@ function load(count) {
       perma_url:false,
       thumbnail_src:false,
       type:"activity",
+      wire_totals: {
+        tokens: 1000000000000000000
+      },
+      containerObj: container
+      // _list: {
+      //   viewed: {
+      //     viewed: new Map([["1019155171608096768",true]]),
+      //     addViewed: () => {
+      //       return;
+      //     }
+      //   }
+      // },
+      // getThumbSource: () => {
+      //   return {
+      //     source:'http://thisisaurl'
+      //   }
+      // }
     }
   });
 
@@ -39,7 +59,7 @@ function load(count) {
     'load-next': 'aaaaaa',
     'load-previous': 'aaaaaa'
   }
-  
+
 }
 
 /**
@@ -47,6 +67,6 @@ function load(count) {
  * @param {integer} count
  */
 export function activitiesServiceFaker() {
-  return { load: load} 
+  return { load: load}
 }
 

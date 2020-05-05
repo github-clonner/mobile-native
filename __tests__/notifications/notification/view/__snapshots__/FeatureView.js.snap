@@ -10,24 +10,18 @@ exports[`renders correctly 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     onPress={[Function]}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
-          "color": "#444",
-          "fontWeight": "bold",
+          "fontWeight": "600",
         }
       }
     >
       some title
     </Text>
+     
     was featured
   </Text>
 </View>

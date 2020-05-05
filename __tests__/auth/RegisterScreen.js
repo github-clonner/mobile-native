@@ -1,12 +1,10 @@
 import 'react-native';
 import React from 'react';
-import { Text, TouchableOpacity } from "react-native";
 import { shallow } from 'enzyme';
 
 import RegisterScreen from '../../src/auth/RegisterScreen';
 
 jest.mock('../../src/auth/RegisterForm', () => 'RegisterForm');
-jest.mock('../../src/common/components/VideoBackground', () => 'VideoBackground');
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
@@ -25,17 +23,17 @@ describe('RegisterScreen component', () => {
     );
 
     // find register form
-    let render = wrapper.dive();
-    const registerForms = render.find('RegisterForm');
+    const registerForms = wrapper.find('RegisterForm');
 
     // should contain 1 login form
     expect(registerForms.length).toBe(1);
   });
 
-  it('should navigate on RegisterForm events', async () => {
+  it('should navigate on RegisterFormNew events', async () => {
 
     const navigation = {
-      dispatch: jest.fn()
+      dispatch: jest.fn(),
+      navigate: jest.fn(),
     };
 
     const wrapper = shallow(
@@ -43,31 +41,15 @@ describe('RegisterScreen component', () => {
     );
 
     // find register form
-    let render = wrapper.dive();
-    const registerForms = render.find('RegisterForm');
+    const registerForms = wrapper.find('RegisterForm');
 
     // should contain 1 login form
     expect(registerForms.length).toBe(1);
 
-    // simulate onRegister event
-    registerForms.at(0).props().onRegister();
-
-    // should call navigate
-    expect(navigation.dispatch.mock.calls.length).toEqual(1);
-
-    // with a navigation action with route to OnboardingScreen
-    expect(navigation.dispatch.mock.calls[0][0].actions[0].routeName).toEqual('OnboardingScreen');
-
-    // clear the mock
-    navigation.dispatch.mockClear();
-
     // simulate onBack event
     registerForms.at(0).props().onBack();
 
-    // should call navigate
-    expect(navigation.dispatch.mock.calls.length).toEqual(1);
-
     // with a navigation action with route to Login
-    expect(navigation.dispatch.mock.calls[0][0].actions[0].routeName).toEqual('Login');
+    expect(navigation.navigate).toBeCalledWith('Login');
   });
 });

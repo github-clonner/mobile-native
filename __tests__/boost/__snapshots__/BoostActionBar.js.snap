@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Boost action bar component renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "display": "flex",
+      "flexDirection": "row",
+      "padding": 4,
+    }
+  }
+>
+  <View />
+  <View />
+  <View
+    key="bid"
+    style={
+      Object {
+        "alignContent": "center",
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Themed.Icon
+      color="rgb(96, 125, 139)"
+      name="bank"
+      size={20}
+      style={
+        Object {
+          "marginBottom": 4,
+        }
+      }
+      type="material-community"
+    />
+    <Text
+      style={
+        Object {
+          "fontSize": 11,
+          "marginTop": 4,
+        }
+      }
+    >
+      $1.00
+    </Text>
+  </View>
+  <View />
+</View>
+`;

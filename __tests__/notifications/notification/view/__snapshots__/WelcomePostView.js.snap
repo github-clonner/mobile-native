@@ -10,25 +10,14 @@ exports[`renders correctly 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      onPress={[Function]}
-      style={
-        Object {
-          "color": "#444",
-          "fontWeight": "bold",
-        }
+    onPress={[Function]}
+    style={
+      Object {
+        "fontWeight": "600",
       }
-    >
-      Tap here
-    </Text>
-     to create a post.
+    }
+  >
+    Tap here to create a post.
   </Text>
 </View>
 `;

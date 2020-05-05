@@ -1,25 +1,37 @@
 {
     "compilerOptions": {
-        "experimentalDecorators": true,
+        "baseUrl": "./",
+        "noImplicitAny": false,
         "allowJs": true,
-        "moduleResolution": "node",
+        "checkJs": false,
+        "declaration": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "skipLibCheck": true,
+        "jsx": "react-native",
+        "lib": ["es6"],
         "module": "commonjs",
-        "target": "es6",
-        "lib": [
-            "es2015"
-        ],
-        "rootDir": "./",
-        "strictNullChecks": true,
-        "noImplicitAny": true,
-        "suppressImplicitAnyIndexErrors": true,
-        "noImplicitThis": true,
-        "noImplicitReturns": true,
-        "noUnusedLocals": true,
-        "noFallthroughCasesInSwitch": true,
-        "forceConsistentCasingInFileNames": true
+        "moduleResolution": "node",
+        "noEmit": true,
+        "strict": true,
+        "target": "esnext"
     },
-    "include": [
-        "App.js",
-        "src/**/*.js",
+    "exclude": [
+        "node_modules",
+        "babel.config.js",
+        "metro.config.js",
+        "jest.config.js",
+        "android",
+        "ios",
+        "__mocks__",
+        "__tests__",
+        "e2e",
+        ".jest",
+        "./react-native.config.js",
+        "./setupTests.js",
+        "tasks",
+        "tests-helpers",
     ]
-}
+  }

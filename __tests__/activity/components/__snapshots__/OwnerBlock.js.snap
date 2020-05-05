@@ -1,24 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Owner component renders correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "alignItems": "center",
       "display": "flex",
       "flexDirection": "row",
-      "padding": 8,
+      "padding": 10,
     }
   }
 >
-  <TouchableOpacity
-    activeOpacity={0.2}
+  <preventDoubleTap(TouchableOpacity)
     onPress={[Function]}
   >
-    <Image
+    <FastImage
+      resizeMode="cover"
       source={
         Object {
-          "source": "http://thisisaurl",
+          "headers": Object {
+            "App-Version": "3.8.0",
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+          },
+          "uri": "https://cdn.minds.com/icon/824853017709780997/medium/undefined",
         }
       }
       style={
@@ -31,8 +36,8 @@ exports[`Owner component renders correctly 1`] = `
         }
       }
     />
-  </TouchableOpacity>
-  <Component
+  </preventDoubleTap(TouchableOpacity)>
+  <View
     style={
       Object {
         "flex": 1,
@@ -42,31 +47,57 @@ exports[`Owner component renders correctly 1`] = `
       }
     }
   >
-    <Component
+    <View
       style={
         Object {
           "flexDirection": "row",
         }
       }
     >
-      <TouchableOpacity
-        activeOpacity={0.2}
+      <preventDoubleTap(TouchableOpacity)
         onPress={[Function]}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           style={
-            Object {
-              "color": "#444",
-              "fontFamily": "Roboto",
-              "fontWeight": "bold",
-            }
+            Array [
+              Object {
+                "color": "#444",
+                "fontFamily": "Roboto",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              },
+              undefined,
+            ]
           }
         />
-      </TouchableOpacity>
-    </Component>
-  </Component>
-</Component>
+      </preventDoubleTap(TouchableOpacity)>
+      <preventDoubleTap(TouchableOpacity)
+        onPress={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "marginLeft": 4,
+          }
+        }
+      >
+        <Text
+          lineBreakMode="tail"
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "fontFamily": "Roboto",
+                "fontWeight": "bold",
+              },
+              undefined,
+            ]
+          }
+        >
+          &gt; 
+          group
+        </Text>
+      </preventDoubleTap(TouchableOpacity)>
+    </View>
+  </View>
+</View>
 `;

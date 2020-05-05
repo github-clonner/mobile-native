@@ -1,11 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Activity editor component renders correctly 1`] = `
-<Component
+<View
   style={
-    Object {
-      "flex": 1,
-    }
+    Array [
+      Object {
+        "flex": 1,
+      },
+      Object {
+        "padding": 5,
+      },
+    ]
   }
 >
   <TextInput
@@ -13,36 +18,87 @@ exports[`Activity editor component renders correctly 1`] = `
     multiline={true}
     numberOfLines={4}
     onChangeText={[Function]}
-    style={
-      Object {
-        "borderColor": "gray",
-        "width": "100%",
-      }
-    }
-    value="Message"
-  />
-  <Component
+    rejectResponderTermination={true}
     style={
       Array [
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "flex-end",
-        },
-        Object {
-          "padding": 8,
-        },
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
       ]
     }
+    testID="Post editor input"
+    underlineColorAndroid="transparent"
+    value="Message"
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
   >
-    <Button
-      onPress={[Function]}
-      title="Cancel"
-    />
-    <Button
-      backgroundColor="#4690D6"
-      onPress={[Function]}
-      title="Save"
-    />
-  </Component>
-</Component>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+          },
+          Object {
+            "paddingTop": 5,
+          },
+        ]
+      }
+    >
+      <inject-with-capture(CapturePosterFlags)
+        hideHash={true}
+        hideShare={true}
+        lockValue={null}
+        nsfwValue={Array []}
+        onLocking={[Function]}
+        onNsfw={[Function]}
+        onScheduled={[Function]}
+        timeCreatedValue={2018-03-26T03:51:24.000Z}
+      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          },
+          Object {
+            "paddingTop": 5,
+          },
+        ]
+      }
+    >
+      <Button
+        loading={false}
+        onPress={[Function]}
+        testID="Post editor cancel button"
+        text="Cancel"
+      />
+      <Button
+        containerStyle={
+          Array [
+            undefined,
+            undefined,
+          ]
+        }
+        disabled={false}
+        loading={false}
+        onPress={[Function]}
+        testID="Post editor save button"
+        text="Save"
+      />
+    </View>
+  </View>
+</View>
 `;

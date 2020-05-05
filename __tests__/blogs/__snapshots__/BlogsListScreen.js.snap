@@ -2,36 +2,72 @@
 
 exports[`blog list screen component should renders correctly 1`] = `
 <RCTScrollView
-  ListHeaderComponent={
-    <Toolbar
-      initial="trending"
-      onChange={[Function]}
-      options={
-        Array [
-          Object {
-            "selectedTextStyle": Object {
-              "color": "black",
-            },
-            "text": "TOP",
-            "value": "trending",
-          },
-          Object {
-            "selectedTextStyle": Object {
-              "color": "black",
-            },
-            "text": "SUBSCRIPTIONS",
-            "value": "network",
-          },
-          Object {
-            "selectedTextStyle": Object {
-              "color": "black",
-            },
-            "text": "MY GROUPS",
-            "value": "owner",
-          },
-        ]
+  ListEmptyComponent={
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "height": 667,
+          "justifyContent": "center",
+        }
       }
-    />
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "column",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#888",
+              "fontFamily": "Roboto",
+              "fontSize": 24,
+              "fontWeight": "200",
+              "marginBottom": 8,
+              "marginTop": 8,
+              "textAlign": "center",
+            }
+          }
+        >
+          This list is empty
+        </Text>
+      </View>
+    </View>
+  }
+  ListFooterComponent={null}
+  ListHeaderComponent={
+    <View>
+      <Toolbar
+        initial="trending"
+        onChange={[Function]}
+        options={
+          Array [
+            Object {
+              "selectedTextStyle": Object {
+                "color": "black",
+              },
+              "text": "SUBSCRIPTIONS",
+              "value": "network",
+            },
+            Object {
+              "selectedTextStyle": Object {
+                "color": "black",
+              },
+              "text": "MY BLOGS",
+              "value": "owner",
+            },
+          ]
+        }
+      />
+    </View>
   }
   data={
     Array [
@@ -54,6 +90,7 @@ exports[`blog list screen component should renders correctly 1`] = `
         "guid": "1",
         "header_bg": "1",
         "header_top": "0",
+        "impressions": 100,
         "last_save": "1524843907",
         "last_updated": "1524838665",
         "license": "attribution-noncommercial-cc",
@@ -62,6 +99,7 @@ exports[`blog list screen component should renders correctly 1`] = `
         "ownerObj": Object {
           "access_id": "2",
           "banned": "no",
+          "blocked": false,
           "boostProPlus": false,
           "boost_autorotate": true,
           "boost_rating": "2",
@@ -92,6 +130,7 @@ exports[`blog list screen component should renders correctly 1`] = `
           "getAvatarSource": [MockFunction],
           "guid": 100,
           "icontime": "1523515420",
+          "impressions": 100,
           "language": "en",
           "legacy_guid": false,
           "mature": "1",
@@ -120,6 +159,7 @@ exports[`blog list screen component should renders correctly 1`] = `
           "spam": "0",
           "subscribed": false,
           "subscriber": true,
+          "subscribers_count": 50,
           "subtype": false,
           "time_created": "1468113204",
           "time_updated": false,
@@ -180,6 +220,7 @@ exports[`blog list screen component should renders correctly 1`] = `
         "guid": "2",
         "header_bg": "1",
         "header_top": "0",
+        "impressions": 100,
         "last_save": "1524843907",
         "last_updated": "1524838665",
         "license": "attribution-noncommercial-cc",
@@ -188,6 +229,7 @@ exports[`blog list screen component should renders correctly 1`] = `
         "ownerObj": Object {
           "access_id": "2",
           "banned": "no",
+          "blocked": false,
           "boostProPlus": false,
           "boost_autorotate": true,
           "boost_rating": "2",
@@ -218,6 +260,7 @@ exports[`blog list screen component should renders correctly 1`] = `
           "getAvatarSource": [MockFunction],
           "guid": 100,
           "icontime": "1523515420",
+          "impressions": 100,
           "language": "en",
           "legacy_guid": false,
           "mature": "1",
@@ -246,6 +289,7 @@ exports[`blog list screen component should renders correctly 1`] = `
           "spam": "0",
           "subscribed": false,
           "subscriber": true,
+          "subscribers_count": 50,
           "subtype": false,
           "time_created": "1468113204",
           "time_updated": false,
@@ -306,6 +350,7 @@ exports[`blog list screen component should renders correctly 1`] = `
         "guid": "3",
         "header_bg": "1",
         "header_top": "0",
+        "impressions": 100,
         "last_save": "1524843907",
         "last_updated": "1524838665",
         "license": "attribution-noncommercial-cc",
@@ -314,6 +359,7 @@ exports[`blog list screen component should renders correctly 1`] = `
         "ownerObj": Object {
           "access_id": "2",
           "banned": "no",
+          "blocked": false,
           "boostProPlus": false,
           "boost_autorotate": true,
           "boost_rating": "2",
@@ -344,6 +390,7 @@ exports[`blog list screen component should renders correctly 1`] = `
           "getAvatarSource": [MockFunction],
           "guid": 100,
           "icontime": "1523515420",
+          "impressions": 100,
           "language": "en",
           "legacy_guid": false,
           "mature": "1",
@@ -372,6 +419,7 @@ exports[`blog list screen component should renders correctly 1`] = `
           "spam": "0",
           "subscribed": false,
           "subscriber": true,
+          "subscribers_count": 50,
           "subtype": false,
           "time_created": "1468113204",
           "time_updated": false,
@@ -421,14 +469,12 @@ exports[`blog list screen component should renders correctly 1`] = `
   getItemLayout={[Function]}
   horizontal={false}
   initialNumToRender={10}
-  invertStickyHeaders={undefined}
   keyExtractor={[Function]}
   maxToRenderPerBatch={10}
   numColumns={1}
   onContentSizeChange={[Function]}
   onEndReached={[Function]}
   onEndReachedThreshold={2}
-  onEndThreshold={0.09}
   onLayout={[Function]}
   onMomentumScrollEnd={[Function]}
   onRefresh={[Function]}
@@ -438,7 +484,6 @@ exports[`blog list screen component should renders correctly 1`] = `
   refreshControl={
     <RefreshControlMock
       onRefresh={[Function]}
-      progressViewOffset={undefined}
       refreshing={false}
     />
   }
@@ -463,198 +508,123 @@ exports[`blog list screen component should renders correctly 1`] = `
   <View>
     <View
       onLayout={[Function]}
-      style={null}
     >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#FFF",
-              "borderBottomColor": "#EEE",
-              "borderTopColor": "#EEE",
-              "borderTopWidth": 0.5,
-              "display": "flex",
-              "flexDirection": "row",
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 0,
-              "shadowColor": "black",
-              "shadowOffset": Object {
-                "height": 0.5,
-              },
-              "shadowOpacity": 0.1,
-              "shadowRadius": 0.5,
-            },
-            Object {},
-          ]
-        }
-      >
+      <View>
         <View
           style={
-            Object {
-              "flex": 1,
-              "flexDirection": "row",
-              "justifyContent": "space-between",
-            }
+            Array [
+              Object {
+                "borderBottomColor": "#EEE",
+                "borderTopWidth": 0.5,
+                "display": "flex",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "shadowColor": "black",
+                "shadowOffset": Object {
+                  "height": 0.5,
+                },
+                "shadowOpacity": 0.1,
+                "shadowRadius": 0.5,
+              },
+              Object {},
+              undefined,
+            ]
           }
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            collapsable={undefined}
-            hasTVPreferredFocus={undefined}
-            hitSlop={undefined}
-            isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "alignItems": "center",
-                "borderBottomColor": "#4690D6",
-                "borderBottomWidth": 2,
                 "flex": 1,
-                "flexDirection": "column",
-                "opacity": 1,
-                "padding": 5,
+                "flexDirection": "row",
+                "justifyContent": "space-between",
               }
             }
-            testID={undefined}
-            tvParallaxProperties={undefined}
           >
-            <Text
+            <View
               accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
-                Array [
-                  Object {
-                    "color": "#4690D6",
-                    "paddingTop": 5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "fontSize": 10,
-                  },
-                  Object {
-                    "color": "black",
-                  },
-                ]
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "transparent",
+                  "borderBottomWidth": 2,
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "opacity": 1,
+                  "padding": 5,
+                }
               }
             >
-              TOP
-            </Text>
-          </View>
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            collapsable={undefined}
-            hasTVPreferredFocus={undefined}
-            hitSlop={undefined}
-            isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#FFF",
-                "borderBottomWidth": 2,
-                "flex": 1,
-                "flexDirection": "column",
-                "opacity": 1,
-                "padding": 5,
-              }
-            }
-            testID={undefined}
-            tvParallaxProperties={undefined}
-          >
-            <Text
+              <Text
+                numberOfLines={1}
+                style={
+                  Array [
+                    Object {
+                      "paddingTop": 3,
+                    },
+                    Object {
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                SUBSCRIPTIONS
+              </Text>
+            </View>
+            <View
               accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
-                Array [
-                  Object {
-                    "paddingTop": 5,
-                  },
-                  Object {
-                    "fontSize": 10,
-                  },
-                ]
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "transparent",
+                  "borderBottomWidth": 2,
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "opacity": 1,
+                  "padding": 5,
+                }
               }
             >
-              SUBSCRIPTIONS
-            </Text>
-          </View>
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            collapsable={undefined}
-            hasTVPreferredFocus={undefined}
-            hitSlop={undefined}
-            isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#FFF",
-                "borderBottomWidth": 2,
-                "flex": 1,
-                "flexDirection": "column",
-                "opacity": 1,
-                "padding": 5,
-              }
-            }
-            testID={undefined}
-            tvParallaxProperties={undefined}
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "paddingTop": 5,
-                  },
-                  Object {
-                    "fontSize": 10,
-                  },
-                ]
-              }
-            >
-              MY GROUPS
-            </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Array [
+                    Object {
+                      "paddingTop": 3,
+                    },
+                    Object {
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                MY BLOGS
+              </Text>
+            </View>
           </View>
         </View>
       </View>
     </View>
     <View
-      onLayout={undefined}
       style={null}
     >
       <View
@@ -686,6 +656,7 @@ exports[`blog list screen component should renders correctly 1`] = `
               "guid": "1",
               "header_bg": "1",
               "header_top": "0",
+              "impressions": 100,
               "last_save": "1524843907",
               "last_updated": "1524838665",
               "license": "attribution-noncommercial-cc",
@@ -694,6 +665,7 @@ exports[`blog list screen component should renders correctly 1`] = `
               "ownerObj": Object {
                 "access_id": "2",
                 "banned": "no",
+                "blocked": false,
                 "boostProPlus": false,
                 "boost_autorotate": true,
                 "boost_rating": "2",
@@ -724,6 +696,7 @@ exports[`blog list screen component should renders correctly 1`] = `
                 "getAvatarSource": [MockFunction],
                 "guid": 100,
                 "icontime": "1523515420",
+                "impressions": 100,
                 "language": "en",
                 "legacy_guid": false,
                 "mature": "1",
@@ -752,6 +725,7 @@ exports[`blog list screen component should renders correctly 1`] = `
                 "spam": "0",
                 "subscribed": false,
                 "subscriber": true,
+                "subscribers_count": 50,
                 "subtype": false,
                 "time_created": "1468113204",
                 "time_updated": false,
@@ -794,12 +768,10 @@ exports[`blog list screen component should renders correctly 1`] = `
               "wire_threshold": "",
             }
           }
-          navigation={undefined}
         />
       </View>
     </View>
     <View
-      onLayout={undefined}
       style={null}
     >
       <View
@@ -831,6 +803,7 @@ exports[`blog list screen component should renders correctly 1`] = `
               "guid": "2",
               "header_bg": "1",
               "header_top": "0",
+              "impressions": 100,
               "last_save": "1524843907",
               "last_updated": "1524838665",
               "license": "attribution-noncommercial-cc",
@@ -839,6 +812,7 @@ exports[`blog list screen component should renders correctly 1`] = `
               "ownerObj": Object {
                 "access_id": "2",
                 "banned": "no",
+                "blocked": false,
                 "boostProPlus": false,
                 "boost_autorotate": true,
                 "boost_rating": "2",
@@ -869,6 +843,7 @@ exports[`blog list screen component should renders correctly 1`] = `
                 "getAvatarSource": [MockFunction],
                 "guid": 100,
                 "icontime": "1523515420",
+                "impressions": 100,
                 "language": "en",
                 "legacy_guid": false,
                 "mature": "1",
@@ -897,6 +872,7 @@ exports[`blog list screen component should renders correctly 1`] = `
                 "spam": "0",
                 "subscribed": false,
                 "subscriber": true,
+                "subscribers_count": 50,
                 "subtype": false,
                 "time_created": "1468113204",
                 "time_updated": false,
@@ -939,12 +915,10 @@ exports[`blog list screen component should renders correctly 1`] = `
               "wire_threshold": "",
             }
           }
-          navigation={undefined}
         />
       </View>
     </View>
     <View
-      onLayout={undefined}
       style={null}
     >
       <View
@@ -976,6 +950,7 @@ exports[`blog list screen component should renders correctly 1`] = `
               "guid": "3",
               "header_bg": "1",
               "header_top": "0",
+              "impressions": 100,
               "last_save": "1524843907",
               "last_updated": "1524838665",
               "license": "attribution-noncommercial-cc",
@@ -984,6 +959,7 @@ exports[`blog list screen component should renders correctly 1`] = `
               "ownerObj": Object {
                 "access_id": "2",
                 "banned": "no",
+                "blocked": false,
                 "boostProPlus": false,
                 "boost_autorotate": true,
                 "boost_rating": "2",
@@ -1014,6 +990,7 @@ exports[`blog list screen component should renders correctly 1`] = `
                 "getAvatarSource": [MockFunction],
                 "guid": 100,
                 "icontime": "1523515420",
+                "impressions": 100,
                 "language": "en",
                 "legacy_guid": false,
                 "mature": "1",
@@ -1042,6 +1019,7 @@ exports[`blog list screen component should renders correctly 1`] = `
                 "spam": "0",
                 "subscribed": false,
                 "subscriber": true,
+                "subscribers_count": 50,
                 "subtype": false,
                 "time_created": "1468113204",
                 "time_updated": false,
@@ -1084,7 +1062,6 @@ exports[`blog list screen component should renders correctly 1`] = `
               "wire_threshold": "",
             }
           }
-          navigation={undefined}
         />
       </View>
     </View>

@@ -1,62 +1,35 @@
 import 'react-native';
 import React from 'react';
-import { Text, TouchableOpacity } from "react-native";
 import { shallow } from 'enzyme';
 
-import attachmentService from '../../../src/common/services/attachment.service';
-import sessionStorage from '../../../src/common/services/session.service';
 import ActivityScreen from '../../../src/newsfeed/ActivityScreen';
-import UserStore from '../../../src/auth/UserStore';
-
-import SingleEntityStore from '../../../src/common/stores/SingleEntityStore';
+import RichEmbedStore from '../../../src/common/stores/RichEmbedStore';
 import commentsStoreProvider from '../../../src/comments/CommentsStoreProvider';
-import {
-  FlatList,
-  KeyboardAvoidingView
-} from 'react-native';
-
 
 import { commentsServiceFaker } from '../../../__mocks__/fake/CommentsFaker';
 import { activitiesServiceFaker } from '../../../__mocks__/fake/ActivitiesFaker';
+import CommentList from '../../../src/comments/CommentList';
+import entitiesService from '../../../src/common/services/entities.service';
+import ActivityModel from '../../../src/newsfeed/ActivityModel';
 
-import renderer from 'react-test-renderer';
-import CommentsStore from '../../../src/comments/CommentsStore';
-import CommentModel from '../../../src/comments/CommentModel';
-import Comment from '../../../src/comments/Comment';
-
-let mockEntityStore = function() {
-  entity = new SingleEntityStore();
-  let entityResponse = activitiesServiceFaker().load(1);
-  entity.setEntity(entityResponse.activities[0]);
-  return entity;
-}
-
-jest.mock('../../../src/capture/CapturePreview', () => 'CapturePreview');
-jest.mock('../../../src/newsfeed/ActivityModel', () => 'ActivityModel');
-jest.mock('../../../src/comments/CommentModel', () => 'CommentModel');
-jest.mock('../../../src/common/BaseModel', () => 'BaseModel');
+jest.mock('../../../src/newsfeed/NewsfeedService');
 jest.mock('../../../src/newsfeed/activity/Activity', () => 'Activity');
-jest.mock('../../../src/comments/Comment', () => 'Comment');
-jest.mock('../../../src/common/components/CenteredLoading', () => 'CenteredLoading');
-jest.mock('../../../src/auth/UserStore');
-jest.mock('../../../src/common/stores/SingleEntityStore', () => {
-  return jest.fn().mockImplementation(() => {
-    return mockEntityStore;
-  });
-});
-
+jest.mock('../../../src/comments/CommentList', () => 'CommentList');
+jest.mock(
+  '../../../src/common/components/CenteredLoading',
+  () => 'CenteredLoading',
+);
 jest.mock('../../../src/comments/CommentsStore');
 jest.mock('../../../src/comments/CommentsStoreProvider');
-
+jest.mock('../../../src/common/services/entities.service');
 
 describe('Activity screen component', () => {
-
-  let user, comments, entity, screen;
+  let screen, navigation, route;
   beforeEach(() => {
-
     let mockResponse = commentsServiceFaker().load(5);
     commentsStoreProvider.get.mockReturnValue({
       comments: mockResponse.comments,
+      embed: new RichEmbedStore(),
       loadNext: mockResponse['load-next'],
       loadPrevious: mockResponse['load-previous'],
       setText: () => {},
@@ -64,56 +37,40 @@ describe('Activity screen component', () => {
       loadComments: () => {
         return mockResponse.comments;
       },
-      attachment:{}
+      attachment: {},
     });
-    user = new UserStore();
-    screen = shallow(
-      <ActivityScreen.wrappedComponent user={user}/>
+  });
+
+  it('renders correctly with an entity as param', async () => {
+    navigation = {
+      push: jest.fn(),
+    };
+
+    route = {
+      routeName: 'some',
+      params: { entity: activitiesServiceFaker().load(1).activities[0] },
+    };
+
+    entitiesService.single.mockResolvedValue(
+      ActivityModel.create(route.params.entity),
     );
 
-    jest.runAllTimers();
-  });
+    screen = shallow(<ActivityScreen navigation={navigation} route={route} />);
 
-  it('renders correctly', async () => {
-    screen.update();
+    // shoul show loading
     expect(screen).toMatchSnapshot();
-  });
 
-  it('should have a flatlist', async () => {
-    screen.update();
+    // unmount
+    await screen.instance().loadEntity();
 
-    expect(screen.find(FlatList)).toHaveLength(1);
-  });
+    jest.runAllTicks();
 
-  it('should be wrapped in a keyboard avoiding view', async () => {
-    screen.update();
+    // await is important here!
+    await screen.update();
 
-    expect(screen.find(KeyboardAvoidingView)).toHaveLength(1);
-  });
-
-
-  it('should have n comments', async () => {
-
-    let instance = screen.instance();
-    const spy = jest.spyOn(instance, 'renderComment');
-    screen.update();
-
-    expect(instance.comments.comments.length).toBe(5);
-  });
-
-
-  it('calls post when user comment', async () => {
-    screen.update();
-    let instance = screen.instance();
-    const spy = jest.spyOn(instance, 'postComment');
-
-    const render = screen.dive();
-    render.find('TextInput').forEach(child => {
-      child.simulate('changeText', 'comment');
-    });
-    expect(instance.comments.comments.length).toBe(5);
-    await render.find('TouchableOpacity').at(1).simulate('press');
-
-    expect(spy).toHaveBeenCalled();
+    // should show the activity
+    expect(screen).toMatchSnapshot();
+    // should have a comment list component
+    expect(screen.find(CommentList)).toHaveLength(1);
   });
 });

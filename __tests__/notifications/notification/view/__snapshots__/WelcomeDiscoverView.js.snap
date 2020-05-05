@@ -10,25 +10,9 @@ exports[`renders correctly 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     onPress={[Function]}
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#444",
-          "fontWeight": "bold",
-        }
-      }
-    >
-      Tap here
-    </Text>
-     to discover new channels and media.
+    Tap here to discover new channels and media.
   </Text>
 </View>
 `;
